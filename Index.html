@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FF Fan Rewards</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #090909, #1b0b00);
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,.75);
+      border-bottom: 1px solid #ff7a00;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff8a00;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+
+    .hero h1 {
+      font-size: 45px;
+      color: #ff8a00;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #ddd;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 30px;
+      background: #ff7a00;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255,122,0,.35);
+    }
+
+    .section {
+      padding: 35px 7%;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,122,0,.35);
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #ff8a00;
+    }
+
+    .card h3 {
+      color: #ff9b32;
+      margin-bottom: 10px;
+    }
+
+    .reward {
+      font-size: 30px;
+      margin: 10px 0;
+    }
+
+    .register {
+      max-width: 450px;
+      margin: 20px auto;
+      background: rgba(255,255,255,.06);
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #555;
+      background: #111;
+      color: white;
+      outline: none;
+    }
+
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      color: #7cff8b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 30px;
+      color: #aaa;
+      border-top: 1px solid #222;
+      font-size: 13px;
+    }
+
+    .notice {
+      max-width: 700px;
+      margin: 25px auto;
+      padding: 15px;
+      background: rgba(255,140,0,.08);
+      border: 1px solid #6b3d00;
+      border-radius: 10px;
+      text-align: center;
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🔥 FF FAN REWARDS</div>
+
+    <nav>
+      <a href="#rewards">Rewards</a>
+      <a href="#register">Register</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>FREE FIRE FAN ZONE</h1>
+
+    <p>
+      Welcome to a community-made Free Fire fan website.
+      Complete activities and collect points in this demo rewards system.
+    </p>
+
+    <a href="#register" class="btn">JOIN NOW</a>
+  </section>
+
+  <section class="section" id="rewards">
+    <h2>🎁 Available Rewards</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Daily Challenge</h3>
+        <div class="reward">⭐ +50</div>
+        <p>Complete today's fan challenge.</p>
+        <button class="btn" onclick="claim(50)">Claim</button>
+      </div>
+
+      <div class="card">
+        <h3>Community Task</h3>
+        <div class="reward">⭐ +100</div>
+        <p>Participate in the community.</p>
+        <button class="btn" onclick="claim(100)">Claim</button>
+      </div>
+
+      <div class="card">
+        <h3>Weekly Bonus</h3>
+        <div class="reward">⭐ +250</div>
+        <p>Complete the weekly activity.</p>
+        <button class="btn" onclick="claim(250)">Claim</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="register">
+
+    <h2>📝 Create Your Fan Account</h2>
+
+    <div class="register">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Your name"
+      >
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Email address"
+      >
+
+      <button class="btn" onclick="registerUser()">
+        REGISTER
+      </button>
+
+      <div class="message" id="message"></div>
+
+    </div>
+
+    <div class="notice">
+      This is an independent fan-made demo and is not affiliated
+      with or endorsed by Garena or Free Fire.
+      Never enter your game password, OTP, recovery code, or payment PIN.
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 FF Fan Rewards • Fan-made website
+  </footer>
+
+  <script>
+
+    let points = 0;
+
+    function registerUser() {
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message");
+
+      if (name === "" || email === "") {
+        message.style.color = "#ff7777";
+        message.innerText = "Please enter your name and email.";
+        return;
+      }
+
+      message.style.color = "#7cff8b";
+      message.innerText =
+        "Registration successful! Welcome, " + name + " 🎉";
+    }
+
+    function claim(amount) {
+
+      points += amount;
+
+      alert(
+        "Reward added! +" + amount +
+        " points\nTotal points: " + points
+      );
+    }
+
+  </script>
+
+</body>
+</html>
